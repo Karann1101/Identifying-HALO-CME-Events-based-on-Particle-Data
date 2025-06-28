@@ -24,7 +24,7 @@ import os
 
 # Import our CME detection modules
 import sys
-sys.path.append('..')
+sys.path.append('scripts')
 from swis_data_loader import SWISDataLoader
 from cactus_scraper import CACTUSCMEScraper
 from halo_cme_detector import HaloCMEDetector
@@ -90,7 +90,7 @@ async def startup_event():
     
     try:
         # Load configuration
-        config_path = Path("../config.yaml")
+        config_path = Path("config.yaml")
         if config_path.exists():
             with open(config_path, 'r') as f:
                 config = yaml.safe_load(f)
@@ -100,7 +100,7 @@ async def startup_event():
         # Initialize components
         swis_loader = SWISDataLoader()
         cme_detector = HaloCMEDetector()
-        cactus_scraper = CACTUSCMEScraper("../config.yaml")
+        cactus_scraper = CACTUSCMEScraper("config.yaml")
         
         logger.info("Backend components initialized successfully")
         

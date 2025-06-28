@@ -2,9 +2,9 @@
 
 # Data paths
 data_paths:
-  swis_data_dir: "data/swis/"
-  cactus_data_dir: "data/cactus/"
-  output_dir: "results/"
+  swis_data_dir: "../data/swis/"
+  cactus_data_dir: "../data/cactus/"
+  output_dir: "../results/"
   
 # CACTUS CME database settings
 cactus:
