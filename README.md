@@ -7,6 +7,7 @@ A comprehensive web application for detecting Halo Coronal Mass Ejection (CME) e
 - [Overview](#overview)
 - [Features](#features)
 - [Architecture](#architecture)
+- [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
@@ -81,6 +82,42 @@ The system is built with a modern full-stack architecture:
 - **CACTUS Scraper**: Fetches CME catalog data
 - **Data Validator**: Ensures data quality and integrity
 
+## 📁 Project Structure
+
+The project is organized into logical directories for better maintainability:
+
+```
+ISRO Hackathon/
+├── 📁 frontend/                 # React/TypeScript Frontend Application
+│   ├── 📁 src/                  # Source code and components
+│   ├── 📁 public/              # Static assets
+│   └── [config files]          # Build and dependency configuration
+│
+├── 📁 backend/                  # Python FastAPI Backend
+│   ├── main.py                 # FastAPI application
+│   ├── requirements.txt        # Python dependencies
+│   └── 📁 venv/               # Virtual environment
+│
+├── 📁 scripts/                  # Python Data Processing Scripts
+│   ├── cactus_scraper.py       # CACTUS CME database scraper
+│   ├── swis_data_loader.py     # SWIS data loading utilities
+│   ├── halo_cme_detector.py    # Halo CME detection algorithms
+│   ├── data_validator.py       # Data validation utilities
+│   ├── main.py                 # Main data processing script
+│   ├── config.yaml             # Configuration file
+│   └── requirements.txt        # Python dependencies for scripts
+│
+├── 📁 data/                     # Data Storage (for processed data)
+├── 📁 docs/                     # Documentation
+│   └── 📁 aditya-halo-alert/   # Project documentation
+│
+├── start.bat                   # Windows startup script
+├── start.sh                    # Linux/Mac startup script
+└── README.md                   # Main project README
+```
+
+For detailed information about the project structure, see [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md).
+
 ## 🚀 Installation
 
 ### Prerequisites
@@ -93,6 +130,9 @@ The system is built with a modern full-stack architecture:
 # Clone the repository
 git clone https://github.com/Karann1101/Identifying-HALO-CME-Events-based-on-Particle-Data.git
 cd Identifying-HALO-CME-Events-based-on-Particle-Data
+
+# Navigate to frontend directory
+cd frontend
 
 # Install frontend dependencies
 npm install
@@ -117,11 +157,28 @@ pip install -r requirements.txt
 python main.py
 ```
 
+### Data Processing Scripts Setup
+```bash
+# Navigate to scripts directory
+cd scripts
+
+# Install Python dependencies for scripts
+pip install -r requirements.txt
+
+# Run data processing (optional)
+python main.py
+```
+
 ### Environment Configuration
 Create a `.env` file in the root directory:
 ```env
 VITE_API_URL=http://localhost:8000
 ```
+
+### Quick Start
+Use the provided startup scripts:
+- **Windows**: Run `start.bat`
+- **Linux/Mac**: Run `./start.sh`
 
 ## 📖 Usage
 
@@ -264,25 +321,34 @@ Returns time-series data for visualization.
 
 ### Project Structure
 ```
-├── src/                    # React frontend
-│   ├── components/         # UI components
-│   ├── lib/               # Utilities and API
-│   ├── pages/             # Page components
-│   └── hooks/             # Custom React hooks
-├── backend/               # FastAPI backend
-│   ├── main.py           # API server
-│   └── requirements.txt  # Python dependencies
-├── swis_data_loader.py   # SWIS data processing
-├── halo_cme_detector.py  # CME detection algorithms
-├── cactus_scraper.py     # CACTUS data fetching
-├── data_validator.py     # Data quality validation
-└── config.yaml          # Configuration file
+├── frontend/              # React/TypeScript Frontend
+│   ├── src/              # Source code
+│   │   ├── components/   # UI components
+│   │   ├── lib/         # Utilities and API
+│   │   ├── pages/       # Page components
+│   │   └── hooks/       # Custom React hooks
+│   ├── public/          # Static assets
+│   └── [config files]   # Build configuration
+├── backend/              # FastAPI Backend
+│   ├── main.py          # API server
+│   └── requirements.txt # Python dependencies
+├── scripts/              # Data Processing Scripts
+│   ├── swis_data_loader.py   # SWIS data processing
+│   ├── halo_cme_detector.py  # CME detection algorithms
+│   ├── cactus_scraper.py     # CACTUS data fetching
+│   ├── data_validator.py     # Data quality validation
+│   ├── main.py               # Main processing script
+│   ├── config.yaml           # Configuration file
+│   └── requirements.txt      # Script dependencies
+├── data/                 # Data storage
+├── docs/                 # Documentation
+└── [startup scripts]     # Quick start scripts
 ```
 
 ### Adding New Features
-1. **Frontend**: Add components in `src/components/`
+1. **Frontend**: Add components in `frontend/src/components/`
 2. **Backend**: Extend API endpoints in `backend/main.py`
-3. **Analysis**: Implement algorithms in Python modules
+3. **Analysis**: Implement algorithms in `scripts/` modules
 4. **Testing**: Add tests for new functionality
 
 ### Code Style
